@@ -12,10 +12,9 @@ const connectedUsers = {};
 
 io.on('connection', socket => {
   const { user } = socket.handshake.query;
-
-  console.log(user, socket.id);
-
+  
   connectedUsers[user] = socket.id;
+  console.log('nova conexão',socket.id);
 }); 
 
 mongoose.connect('mongodb+srv://omnistack:Rodrigo82@cluster0-kgea7.mongodb.net/omnistack8?retryWrites=true&w=majority',{

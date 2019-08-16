@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
-import { KeyboardAvoidingView,  Platform,  Text,  StyleSheet,  Image,  TextInput,  TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage'
+import { KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 import api from '../services/api';
 
@@ -12,9 +12,9 @@ export default function Login({ navigation }) {
   useEffect(() => {
     AsyncStorage.getItem('user').then(user => {
       if (user) {
-        navigation.navigate('Main', {user});
+        navigation.navigate('Main', { user })
       }
-    });
+    })
   }, []);
 
   async function handleLogin() {
@@ -28,17 +28,17 @@ export default function Login({ navigation }) {
   }
 
   return (
-    <KeyboardAvoidingView
+    <KeyboardAvoidingView 
       behavior="padding"
       enabled={Platform.OS === 'ios'}
-      style={styles.contaniner}
+      style={styles.container}
     >
       <Image source={logo} />
 
-      <TextInput
+      <TextInput 
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="Digite seu usuário do Github"
+        placeholder="Digite seu usuário no Github"
         placeholderTextColor="#999"
         style={styles.input}
         value={user}
@@ -53,13 +53,14 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  contaniner: {
+  container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 30,
+    padding: 30
   },
+
   input: {
     height: 46,
     alignSelf: 'stretch',
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 15,
   },
+
   button: {
     height: 46,
     alignSelf: 'stretch',
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   buttonText: {
     color: '#FFF',
     fontWeight: 'bold',
